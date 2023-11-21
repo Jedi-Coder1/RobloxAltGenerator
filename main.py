@@ -10,8 +10,8 @@ import json, time, random, math
 # Load Json Data
 with open("config.json") as js:
     data = json.load(js)
-    baseUsername = data['startofusername']
-    password = data['password']
+    baseUsername = str(data['startofusername'])
+    password = str(data['password'])
     accountnumber = int(data['accountstocreate'])
     numbersafterusername = int(data['Digits'])
 
