@@ -67,7 +67,7 @@ def createAccount(driver):
     username = baseUsername + genNumber()
     sign_user.send_keys(username)
     time.sleep(0.7)
-    # Username In Use
+    # Is Username In Use
     if len(driver.find_element(By.ID, "signup-usernameInputValidation").text) == 0:
         Signup(driver, username)
     else:
