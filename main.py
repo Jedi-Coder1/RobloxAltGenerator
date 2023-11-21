@@ -30,22 +30,21 @@ options.add_experimental_option('useAutomationExtension', False)
 url = "https://www.roblox.com/signup"
 print("Creating {} Accounts".format(accountnumber))
 
-def writeLog(username: str):
-    with open("log.txt", 'a') as log:
-        write = "Successfully Created Account: " + username
-        print(write)
-        log.write(write)
-        log.write("\n")
-        log.close()
-
 def genNumber():
     ph_no = []
     for i in range(numbersafterusername): 
         ph_no.append(str(random.randint(0, 9))) 
     return str().join(ph_no)
 
-def Signup(secondDriver: webdriver.Chrome, name: str):
-    # Signup Complete
+def Signup(secondDriver: webdriver.Chrome, username: str):
+    # Write Log
+    with open("log.txt", 'a') as log:
+        write = "Successfully Created Account: " + username
+        print(write)
+        log.write(write)
+        log.write("\n")
+        log.close()
+    # CLick Signup Button
     sigup_button = secondDriver.find_element(By.ID, "signup-button")
     webdriver.ActionChains(secondDriver).move_to_element(sigup_button).click().perform()
     time.sleep(100)
